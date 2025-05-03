@@ -136,6 +136,169 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* New API Section Styles */
+        .api-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(45deg, #0a192f, #020c1b);
+        }
+
+        .api-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .api-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .api-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .vt-card {
+            border-color: #0078ff;
+            background: rgba(0,120,255,0.1);
+        }
+
+        .dns-card {
+            border-color: #28a745;
+            background: rgba(40,167,69,0.1);
+        }
+
+        .api-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .api-logo {
+            height: 40px;
+        }
+
+        .api-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .code-block {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 1.5rem 0;
+        }
+
+        /* Improved Developer Section */
+        .developer {
+            padding: 6rem 2rem;
+            background: linear-gradient(45deg, #0a192f, #020c1b);
+            text-align: center;
+        }
+
+        .dev-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .dev-profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .dev-code-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .dev-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .dev-social-link {
+            background: rgba(255,255,255,0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .dev-social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .github-link {
+            border-left: 3px solid #6e5494;
+        }
+
+        .linkedin-link {
+            border-left: 3px solid #0077b5;
+        }
+
+        .twitter-link {
+            border-left: 3px solid #1da1f2;
+        }
+
+        .projects-section {
+            margin-top: 3rem;
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .project-link {
+            color: #aaa;
+            text-decoration: none;
+            border: 1px solid #aaa;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -151,18 +314,6 @@
             <a href="https://x.com/SaadAyady"><i class="fab fa-linkedin"></i></a>
         </div>
     </nav>
-    
-    <style>
-        /* Add this to your existing CSS */
-        .brand img {
-            margin-right: 15px; /* Space between logo and text */
-            transition: transform 0.3s ease;
-        }
-    
-        .brand:hover img {
-            transform: scale(1.1); /* Slight enlargement on hover */
-        }
-    </style>
 
     <section class="hero">
         <div class="hero-content" style="text-align: center;">
@@ -175,325 +326,329 @@
         </div>
     </section>
 
-<!-- Features Section -->
-<section class="features" style="padding: 4rem 2rem; background: rgba(10, 25, 47, 0.9);">
-    <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">SubFors Key Features</h2>
-    
-    <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
-        <!-- Feature Card 1 -->
-        <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
-            <i class="fas fa-search fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-            <h3 style="margin-bottom: 1rem;">Rapid Scanning</h3>
-            <p style="color: #aaa;">Lightning-fast subdomain enumeration with optimized algorithms</p>
-        </div>
-
-        <!-- Feature Card 2 -->
-        <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
-            <i class="fas fa-shield-alt fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-            <h3 style="margin-bottom: 1rem;">Military-grade Security</h3>
-            <p style="color: #aaa;">Secure data handling and encrypted result storage</p>
-        </div>
-
-        <!-- Feature Card 3 -->
-        <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
-            <i class="fas fa-bolt fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-            <h3 style="margin-bottom: 1rem;">Optimized Performance</h3>
-            <p style="color: #aaa;">Multi-threaded operations for maximum efficiency</p>
-        </div>
-
-        <!-- Feature Card 4 -->
-        <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
-            <i class="fas fa-list-ol fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-            <h3 style="margin-bottom: 1rem;">Smart Organization</h3>
-            <p style="color: #aaa;">Automated sorting and categorization of results</p>
-        </div>
-
-        <!-- Feature Card 5 -->
-        <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
-            <i class="fas fa-magic fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-            <h3 style="margin-bottom: 1rem;">Advanced Techniques</h3>
-            <p style="color: #aaa;">Combination of DNS brute-forcing and OSINT methods</p>
-        </div>
-
-        <!-- Feature Card 6 -->
-        <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
-            <i class="fas fa-cloud fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-            <h3 style="margin-bottom: 1rem;">Cloud Integration</h3>
-            <p style="color: #aaa;">Seamless integration with popular security platforms</p>
-        </div>
-    </div>
-</section>
-
-<!-- Add this to the existing CSS -->
-<style>
-    .feature-card {
-        transition: all 0.3s ease;
-        transform: translateY(0);
-        cursor: pointer;
-    }
-
-    .feature-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 0 20px var(--primary);
-    }
-
-    .feature-card:hover i {
-        animation: iconPulse 0.6s ease;
-    }
-
-    @keyframes iconPulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.2); }
-        100% { transform: scale(1); }
-    }
-</style>
-
-
-<!-- Add after features section -->
-<section class="screenshots" style="padding: 4rem 0; position: relative;">
-    <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Tool Screenshots</h2>
-    
-    <div class="gallery-container" style="position: relative;">
-        <div class="scroll-buttons" style="position: absolute; top: 50%; transform: translateY(-50%); width: 100%; 
-                    display: flex; justify-content: space-between; padding: 0 1rem; z-index: 100;">
-            <button class="scroll-btn prev" onclick="scrollGallery(-1)" 
-                    style="background: rgba(0,0,0,0.5); border: none; padding: 1rem; border-radius: 50%; cursor: pointer;">
-                <i class="fas fa-chevron-left" style="color: var(--primary); font-size: 1.5rem;"></i>
-            </button>
-            <button class="scroll-btn next" onclick="scrollGallery(1)" 
-                    style="background: rgba(0,0,0,0.5); border: none; padding: 1rem; border-radius: 50%; cursor: pointer;">
-                <i class="fas fa-chevron-right" style="color: var(--primary); font-size: 1.5rem;"></i>
-            </button>
-        </div>
-
-        <div class="gallery-inner" style="display: flex; overflow-x: scroll; scroll-snap-type: x mandatory; 
-                    height: 80vh; scroll-behavior: smooth;">
-            <!-- Screenshot 1 -->
-            <div class="screenshot-item" style="flex: 0 0 100vw; scroll-snap-align: start; position: relative; 
-                        height: 80vh; display: flex; align-items: center; justify-content: center;">
-                <div style="position: relative; max-width: 90%; height: 90%;">
-                    <img src="./pic/pic1.png" alt="Interface" 
-                         style="height: 100%; width: 100%; object-fit: contain; border-radius: 10px;">
-                    <div class="image-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-                             background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;
-                             padding: 2rem; opacity: 0; transition: opacity 0.3s ease; border-radius: 10px;">
-                        <p style="color: var(--primary); font-size: 1.2rem; text-align: center; max-width: 600px;">
-                            Main interface with scanning options
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Screenshot 2 -->
-            <div class="screenshot-item" style="flex: 0 0 100vw; scroll-snap-align: start; position: relative; 
-                        height: 80vh; display: flex; align-items: center; justify-content: center;">
-                <div style="position: relative; max-width: 90%; height: 90%;">
-                    <img src="./pic/pic2.png" alt="Results" 
-                         style="height: 100%; width: 100%; object-fit: contain; border-radius: 10px;">
-                    <div class="image-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-                             background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;
-                             padding: 2rem; opacity: 0; transition: opacity 0.3s ease; border-radius: 10px;">
-                        <p style="color: var(--primary); font-size: 1.2rem; text-align: center; max-width: 600px;">
-                            Results panel with export options
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script>
-    // Scroll functionality
-    let currentSlide = 0;
-    const gallery = document.querySelector('.gallery-inner');
-    const slides = document.querySelectorAll('.screenshot-item');
-
-    function scrollGallery(direction) {
-        currentSlide = (currentSlide + direction + slides.length) % slides.length;
-        gallery.scrollTo({
-            left: currentSlide * window.innerWidth,
-            behavior: 'smooth'
-        });
-    }
-
-    // Hover effect for overlay
-    document.querySelectorAll('.screenshot-item').forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            item.querySelector('.image-overlay').style.opacity = '1';
-        });
+    <!-- Features Section -->
+    <section class="features" style="padding: 4rem 2rem; background: rgba(10, 25, 47, 0.9);">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">SubFors Key Features</h2>
         
-        item.addEventListener('mouseleave', () => {
-            item.querySelector('.image-overlay').style.opacity = '0';
-        });
-    });
+        <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+            <!-- Feature Card 1 -->
+            <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
+                <i class="fas fa-search fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Rapid Scanning</h3>
+                <p style="color: #aaa;">Lightning-fast subdomain enumeration with optimized algorithms</p>
+            </div>
 
-    // Hide/show scroll buttons
-    gallery.addEventListener('scroll', () => {
-        const buttons = document.querySelectorAll('.scroll-btn');
-        buttons[0].style.display = gallery.scrollLeft === 0 ? 'none' : 'block';
-        buttons[1].style.display = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth ? 'none' : 'block';
-    });
-</script>
+            <!-- Feature Card 2 -->
+            <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
+                <i class="fas fa-shield-alt fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Military-grade Security</h3>
+                <p style="color: #aaa;">Secure data handling and encrypted result storage</p>
+            </div>
 
-<style>
-    .gallery-inner::-webkit-scrollbar {
-        display: none;
-    }
+            <!-- Feature Card 3 -->
+            <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
+                <i class="fas fa-bolt fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Optimized Performance</h3>
+                <p style="color: #aaa;">Multi-threaded operations for maximum efficiency</p>
+            </div>
 
-    .scroll-btn {
-        transition: all 0.3s ease;
-        backdrop-filter: blur(5px);
-    }
+            <!-- Feature Card 4 -->
+            <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
+                <i class="fas fa-list-ol fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Smart Organization</h3>
+                <p style="color: #aaa;">Automated sorting and categorization of results</p>
+            </div>
 
-    .scroll-btn:hover {
-        background: rgba(0, 255, 136, 0.2) !important;
-        transform: scale(1.1);
-    }
+            <!-- Feature Card 5 -->
+            <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
+                <i class="fas fa-magic fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <h3 style="margin-bottom: 1rem;">Advanced Techniques</h3>
+                <p style="color: #aaa;">Combination of DNS brute-forcing and OSINT methods</p>
+            </div>
 
-    .image-overlay p {
-        transform: translateY(20px);
-        transition: transform 0.3s ease;
-    }
+            <!-- Feature Card 6 - API Integration -->
+            <div class="feature-card animate-on-scroll" style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid var(--primary);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <i class="fas fa-cloud fa-3x" style="color: var(--primary);"></i>
+                    <div>
+                        <div style="display: inline-block; background: var(--primary); color: var(--dark); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">NEW</div>
+                    </div>
+                </div>
+                <h3 style="margin-bottom: 1rem;">API Integrations</h3>
+                <p style="color: #aaa;">Professional reconnaissance with VirusTotal and DNSDumpster APIs</p>
+            </div>
+        </div>
+    </section>
 
-    .screenshot-item:hover .image-overlay p {
-        transform: translateY(0);
-    }
-</style>
-
-
-<!-- Add before comments section -->
-<section class="developer" style="padding: 6rem 2rem; background: linear-gradient(45deg, #0a192f, #020c1b);">
-    <div class="dev-container" style="max-width: 1200px; margin: 0 auto;">
-        <div class="profile-card animate-on-scroll" style="background: rgba(255,255,255,0.05); 
-                    backdrop-filter: blur(10px); border-radius: 20px; padding: 3rem; 
-                    position: relative; overflow: hidden;">
-            <div class="glow-effect" style="position: absolute; width: 400px; height: 400px; 
-                        background: radial-gradient(circle, var(--primary) 0%, transparent 70%); 
-                        top: -50%; left: -50%; opacity: 0.1; pointer-events: none;"></div>
+    <!-- API Integration Section -->
+    <section class="api-section">
+        <div class="api-container">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2rem;">Professional API Integrations</h2>
             
-            <div class="profile-content" style="display: flex; gap: 3rem; align-items: center;
-                        flex-wrap: wrap; justify-content: center;">
-                <div class="profile-image" style="position: relative;">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQE87dEJXLMWJg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722567768313?e=1751500800&v=beta&t=Df0pQ7webtVPlJn1hT0jd5ufAz1EO9hnCjG9WmNfI2s" 
-                         alt="Saad Ayady" 
-                         style="width: 250px; height: 250px; border-radius: 50%; 
-                                border: 3px solid var(--primary); box-shadow: 0 0 30px var(--primary);">
-                    <div class="image-hover" style="position: absolute; top: 0; left: 0; 
-                                width: 100%; height: 100%; border-radius: 50%; 
-                                border: 2px solid transparent; animation: rotate 10s linear infinite;">
+            <!-- VirusTotal Card -->
+            <div class="api-card vt-card animate-on-scroll">
+                <div class="api-header">
+                    <img src="https://www.virustotal.com/gui/images/vt-enterprise.svg" alt="VirusTotal" class="api-logo">
+                    <div>
+                        <h3>VirusTotal Intelligence</h3>
+                        <small style="color: #aaa;">Enterprise-grade threat intelligence</small>
+                    </div>
+                    <span class="api-badge">NEW</span>
+                </div>
+                <p style="color: #ccc; margin-bottom: 1.5rem;">
+                    Leverage VirusTotal's massive threat intelligence database to discover subdomains 
+                    from historical scans and passive DNS records.
+                </p>
+                <div class="code-block">
+                    subfors -d example.com -vt YOUR_API_KEY
+                </div>
+                <div>
+                    <small style="color: #aaa;">Key Features:</small>
+                    <ul style="color: #ccc; margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Access to 10M+ historical subdomains</li>
+                        <li>Malicious domain detection</li>
+                        <li>Automatic API quota management</li>
+                        <li>Comprehensive threat intelligence</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DNSDumpster Card -->
+            <div class="api-card dns-card animate-on-scroll">
+                <div class="api-header">
+                    <img src="https://dnsdumpster.com/static/images/logo.png" alt="DNSDumpster" class="api-logo">
+                    <div>
+                        <h3>DNSDumpster Enterprise</h3>
+                        <small style="color: #aaa;">Complete DNS reconnaissance</small>
+                    </div>
+                    <span class="api-badge">NEW</span>
+                </div>
+                <p style="color: #ccc; margin-bottom: 1.5rem;">
+                    Comprehensive DNS mapping including historical records, MX configurations, 
+                    and network infrastructure discovery.
+                </p>
+                <div class="code-block">
+                    subfors -d example.com -dn YOUR_API_KEY
+                </div>
+                <div>
+                    <small style="color: #aaa;">Key Features:</small>
+                    <ul style="color: #ccc; margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Historical DNS record analysis</li>
+                        <li>Network infrastructure mapping</li>
+                        <li>Data correlation engine</li>
+                        <li>Enterprise-grade API access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" style="padding: 4rem 0; position: relative;">
+        <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Tool Screenshots</h2>
+        
+        <div class="gallery-container" style="position: relative;">
+            <div class="scroll-buttons" style="position: absolute; top: 50%; transform: translateY(-50%); width: 100%; 
+                        display: flex; justify-content: space-between; padding: 0 1rem; z-index: 100;">
+                <button class="scroll-btn prev" onclick="scrollGallery(-1)" 
+                        style="background: rgba(0,0,0,0.5); border: none; padding: 1rem; border-radius: 50%; cursor: pointer;">
+                    <i class="fas fa-chevron-left" style="color: var(--primary); font-size: 1.5rem;"></i>
+                </button>
+                <button class="scroll-btn next" onclick="scrollGallery(1)" 
+                        style="background: rgba(0,0,0,0.5); border: none; padding: 1rem; border-radius: 50%; cursor: pointer;">
+                    <i class="fas fa-chevron-right" style="color: var(--primary); font-size: 1.5rem;"></i>
+                </button>
+            </div>
+
+            <div class="gallery-inner" style="display: flex; overflow-x: scroll; scroll-snap-type: x mandatory; 
+                        height: 80vh; scroll-behavior: smooth;">
+                <!-- Screenshot 1 -->
+                <div class="screenshot-item" style="flex: 0 0 100vw; scroll-snap-align: start; position: relative; 
+                            height: 80vh; display: flex; align-items: center; justify-content: center;">
+                    <div style="position: relative; max-width: 90%; height: 90%;">
+                        <img src="./pic/pic1.png" alt="Interface" 
+                             style="height: 100%; width: 100%; object-fit: contain; border-radius: 10px;">
+                        <div class="image-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+                                 background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;
+                                 padding: 2rem; opacity: 0; transition: opacity 0.3s ease; border-radius: 10px;">
+                            <p style="color: var(--primary); font-size: 1.2rem; text-align: center; max-width: 600px;">
+                                Main interface with scanning options
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="profile-info" style="max-width: 600px;">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary);">
-                        Saad Ayady
-                        <span style="display: inline-block; margin-left: 1rem; animation: float 3s ease-in-out infinite;">
-                            👋
-                        </span>
-                    </h2>
-                    <p style="color: #aaa; font-size: 1.1rem; line-height: 1.6;">
-                        Cybersecurity Specialist & Full-Stack Developer with passion for creating 
-                        powerful security tools. Creator of SubFors and multiple open-source 
-                        security solutions.
-                    </p>
-                    
-                    <div class="social-links" style="margin-top: 2rem; display: flex; gap: 1.5rem;">
-                        <a href="https://github.com/Saad-Ayad" class="social-icon" style="font-size: 1.5rem; color: var(--light);
-                                    transition: all 0.3s ease;">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/saad-ayady-b445042a1/" class="social-icon" style="font-size: 1.5rem; color: var(--light);
-                                    transition: all 0.3s ease;">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://x.com/SaadAyady" class="social-icon" style="font-size: 1.5rem; color: var(--light);
-                                    transition: all 0.3s ease;">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </div>
-
-                    <div class="stats-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); 
-                                gap: 1rem; margin-top: 2rem;">
-                        <div class="stat-box" style="background: rgba(255,255,255,0.05); padding: 1rem; 
-                                    border-radius: 10px; text-align: center;">
-                            <div class="stat-number" style="color: var(--primary); font-size: 1.5rem; 
-                                        font-weight: bold;">5+</div>
-                            <div class="stat-label" style="color: #aaa; font-size: 0.9rem;">Years Experience</div>
+                <!-- Screenshot 2 -->
+                <div class="screenshot-item" style="flex: 0 0 100vw; scroll-snap-align: start; position: relative; 
+                            height: 80vh; display: flex; align-items: center; justify-content: center;">
+                    <div style="position: relative; max-width: 90%; height: 90%;">
+                        <img src="./pic/pic2.png" alt="Results" 
+                             style="height: 100%; width: 100%; object-fit: contain; border-radius: 10px;">
+                        <div class="image-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+                                 background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;
+                                 padding: 2rem; opacity: 0; transition: opacity 0.3s ease; border-radius: 10px;">
+                            <p style="color: var(--primary); font-size: 1.2rem; text-align: center; max-width: 600px;">
+                                Results panel with export options
+                            </p>
                         </div>
-                        <!-- Add more stat boxes -->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-    @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
+    <!-- Developer Section -->
+    <section class="developer">
+        <div class="dev-container">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--primary);">
+                Behind the Code
+            </h2>
+            
+            <div style="position: relative; display: inline-block; margin-bottom: 2rem;">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQE87dEJXLMWJg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722567768313?e=1751500800&v=beta&t=Df0pQ7webtVPlJn1hT0jd5ufAz1EO9hnCjG9WmNfI2s" 
+                     alt="Saad Ayady" class="dev-profile">
+                <div class="dev-code-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
 
-    @keyframes float {
-        0% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0); }
-    }
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Saad Ayady</h3>
+            <p style="color: #aaa; font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
+                Cybersecurity engineer and open-source tool developer with focus on 
+                creating practical solutions for penetration testers and red teams.
+            </p>
+            
+            <div class="dev-social-links">
+                <a href="https://github.com/Saad-Ayady" class="dev-social-link github-link">
+                    <i class="fab fa-github"></i> 
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/saad-ayady-b445042a1/" class="dev-social-link linkedin-link">
+                    <i class="fab fa-linkedin"></i> 
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://x.com/SaadAyady" class="dev-social-link twitter-link">
+                    <i class="fab fa-twitter"></i> 
+                    <span>Twitter</span>
+                </a>
+            </div>
+            
+            <style>
+                .dev-social-links {
+                    display: flex;
+                    justify-content: center;
+                    gap: 1.5rem;
+                    flex-wrap: wrap;
+                    margin: 2rem 0;
+                }
+            
+                .dev-social-link {
+                    position: relative;
+                    background: rgba(255,255,255,0.1);
+                    padding: 0.8rem 1.5rem;
+                    border-radius: 30px;
+                    color: white;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    overflow: hidden;
+                    z-index: 1;
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+            
+                .dev-social-link span {
+                    position: relative;
+                    z-index: 2;
+                    transition: transform 0.3s ease;
+                }
+            
+                .dev-social-link i {
+                    position: relative;
+                    z-index: 2;
+                    transition: transform 0.3s ease;
+                }
+            
+                .dev-social-link::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(45deg, var(--hover-color), transparent);
+                    transform: translateX(-100%);
+                    transition: transform 0.6s ease;
+                    z-index: 1;
+                }
+            
+                .dev-social-link:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                }
+            
+                .dev-social-link:hover::before {
+                    transform: translateX(0);
+                }
+            
+                .dev-social-link:hover i {
+                    transform: scale(1.2) rotate(10deg);
+                }
+            
+                .dev-social-link:hover span {
+                    transform: translateX(5px);
+                }
+            
+                /* Individual link colors */
+                .github-link {
+                    --hover-color: #6e5494;
+                    border-left: 3px solid var(--hover-color);
+                }
+            
+                .linkedin-link {
+                    --hover-color: #0077b5;
+                    border-left: 3px solid var(--hover-color);
+                }
+            
+                .twitter-link {
+                    --hover-color: #1da1f2;
+                    border-left: 3px solid var(--hover-color);
+                }
+            
+                /* Animation for initial appearance */
+                @keyframes socialFadeIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            
+                .dev-social-link {
+                    animation: socialFadeIn 0.6s ease forwards;
+                }
+            
+                .dev-social-link:nth-child(1) { animation-delay: 0.1s; }
+                .dev-social-link:nth-child(2) { animation-delay: 0.3s; }
+                .dev-social-link:nth-child(3) { animation-delay: 0.5s; }
+            </style>
 
-    .profile-image:hover {
-        transform: scale(1.05);
-    }
-
-    .social-icon:hover {
-        color: var(--primary) !important;
-        transform: translateY(-3px);
-    }
-
-    .stat-box {
-        transition: all 0.3s ease;
-    }
-
-    .stat-box:hover {
-        background: rgba(255,255,255,0.1);
-        transform: translateY(-5px);
-    }
-
-    .image-hover {
-        animation: pulse 2s ease infinite;
-    }
-
-    @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(0,255,136,0.4); }
-        70% { box-shadow: 0 0 0 15px rgba(0,255,136,0); }
-        100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
-    }
-
-    .profile-card {
-        transition: transform 0.3s ease;
-    }
-
-    .profile-card:hover .glow-effect {
-        opacity: 0.2;
-    }
-</style>
-
-<script>
-    // Add intersection observer for animation
-    const profileCard = document.querySelector('.profile-card');
-    const profileObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.style.transform = 'translateY(0)';
-                entry.target.style.opacity = '1';
-            }
-        });
-    });
-
-    profileObserver.observe(profileCard);
-</script>
-
-
+            <div class="projects-section">
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">Other Projects</h4>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="https://github.com/Saad-Ayady/SqlKing" class="project-link">
+                        <i class="fas fa-shield-alt"></i> SQL King
+                    </a>
+                    <a href="https://github.com/Saad-Ayady/METALC" class="project-link">
+                        <i class="fas fa-network-wired"></i> METALCA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="comment-section">
         <div class="comment-form animate-on-scroll">
@@ -503,6 +658,34 @@
         </div>
         <div id="commentsContainer" class="animate-on-scroll"></div>
     </section>
+
+    <footer style="background: linear-gradient(45deg, #0a192f, #020c1b); padding: 2rem 1rem; text-align: center; border-top: 1px solid rgba(0,255,136,0.2);">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <img src="./pic/icon3.png" alt="SubFors" 
+                 style="height: 48px; width: auto; margin-bottom: 1rem; opacity: 0.9; transition: all 0.3s ease;">
+            
+            <div style="color: #00ff88; font-size: 1.1rem; margin: 1rem 0; font-family: 'Courier New', monospace; position: relative;">
+                <p style="display: inline-block;">© 2025 | Happy Hacking :)</p>
+                <div style="position: absolute; bottom: -5px; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, #00ff88, transparent);"></div>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 1.2rem; margin: 1.5rem 0;">
+                <a href="https://github.com/Saad-Ayady" style="color: #ecf0f1; font-size: 1.2rem; transition: all 0.3s ease;">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/SaadAyady" style="color: #ecf0f1; font-size: 1.2rem; transition: all 0.3s ease;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/saad-ayady-b445042a1/" style="color: #ecf0f1; font-size: 1.2rem; transition: all 0.3s ease;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
+            <p style="color: #7f8c8d; font-size: 0.85rem; margin-top: 1rem;">
+                Crafted with <span style="color: #e74c3c;">♥</span> by Saad Ayady
+            </p>
+        </div>
+    </footer>
 
     <script>
         // Comment System
@@ -545,65 +728,39 @@
 
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
+        // Gallery Functionality
+        let currentSlide = 0;
+        const gallery = document.querySelector('.gallery-inner');
+        const slides = document.querySelectorAll('.screenshot-item');
+
+        function scrollGallery(direction) {
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            gallery.scrollTo({
+                left: currentSlide * window.innerWidth,
+                behavior: 'smooth'
+            });
+        }
+
+        // Hover effect for overlay
+        document.querySelectorAll('.screenshot-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('.image-overlay').style.opacity = '1';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('.image-overlay').style.opacity = '0';
+            });
+        });
+
+        // Hide/show scroll buttons
+        gallery.addEventListener('scroll', () => {
+            const buttons = document.querySelectorAll('.scroll-btn');
+            buttons[0].style.display = gallery.scrollLeft === 0 ? 'none' : 'block';
+            buttons[1].style.display = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth ? 'none' : 'block';
+        });
+
         // Initial load
         displayComments();
     </script>
-
-<footer style="background: linear-gradient(45deg, #0a192f, #020c1b); padding: 2rem 1rem; text-align: center; border-top: 1px solid rgba(0,255,136,0.2);">
-    <div style="max-width: 800px; margin: 0 auto;">
-        <!-- Logo with perfect size (not too big) -->
-        <img src="./pic/icon3.png" alt="SubFors" 
-             style="height: 48px; width: auto; margin-bottom: 1rem; opacity: 0.9; transition: all 0.3s ease;">
-        
-        <!-- Animated message -->
-        <div style="color: #00ff88; font-size: 1.1rem; margin: 1rem 0; font-family: 'Courier New', monospace; position: relative;">
-            <p style="display: inline-block;">© 2025 | Happy Hacking :)</p>
-            <div style="position: absolute; bottom: -5px; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, #00ff88, transparent);"></div>
-        </div>
-
-        <!-- Minimal social links -->
-        <div style="display: flex; justify-content: center; gap: 1.2rem; margin: 1.5rem 0;">
-            <a href="#" style="color: #ecf0f1; font-size: 1.2rem; transition: all 0.3s ease;">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="#" style="color: #ecf0f1; font-size: 1.2rem; transition: all 0.3s ease;">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" style="color: #ecf0f1; font-size: 1.2rem; transition: all 0.3s ease;">
-                <i class="fab fa-linkedin"></i>
-            </a>
-        </div>
-
-        <!-- Simple copyright -->
-        <p style="color: #7f8c8d; font-size: 0.85rem; margin-top: 1rem;">
-            Crafted with <span style="color: #e74c3c;">♥</span> by Saad Ayady
-        </p>
-    </div>
-</footer>
-
-<style>
-    /* Smooth hover effects */
-    footer img:hover {
-        opacity: 1;
-        transform: scale(1.05);
-        filter: drop-shadow(0 0 8px rgba(0,255,136,0.3));
-    }
-    
-    footer a:hover {
-        color: #00ff88 !important;
-        transform: translateY(-2px);
-    }
-    
-    /* Pulsing animation for the message */
-    @keyframes pulse {
-        0% { opacity: 0.8; }
-        50% { opacity: 1; text-shadow: 0 0 5px #00ff88; }
-        100% { opacity: 0.8; }
-    }
-    
-    footer p {
-        animation: pulse 3s ease-in-out infinite;
-    }
-</style>
 </body>
 </html>
