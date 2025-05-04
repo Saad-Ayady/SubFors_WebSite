@@ -78,6 +78,7 @@
             justify-content: center;
             background: linear-gradient(45deg, rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.7)),
                         url('https://images.alphacoders.com/137/thumb-1920-1375178.png');
+            background-attachment: fixed;
             background-size: cover;
             background-position: center;
             padding: 2rem;
@@ -299,6 +300,63 @@
             color: var(--primary);
             border-color: var(--primary);
         }
+        .github-card {
+            border-color: #6e5494;
+            background: rgba(110, 84, 148, 0.1);
+        }
+
+        /* Enhanced Feature Cards */
+        .feature-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                rgba(var(--primary-rgb), 0.1), 
+                transparent 50%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .feature-card:hover::before {
+            animation: featureGlow 2s infinite;
+        }
+
+        @keyframes featureGlow {
+            0% { opacity: 0; transform: rotate(45deg) translate(-10%, -10%); }
+            50% { opacity: 0.3; }
+            100% { opacity: 0; transform: rotate(45deg) translate(10%, 10%); }
+        }
+
+        /* New Terminal Effect for Code Blocks */
+        .code-block {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-block::after {
+            content: '↪';
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            animation: cursorBlink 1s infinite;
+        }
+
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -440,9 +498,84 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="api-card github-card animate-on-scroll">
+                <div class="api-header">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+                         alt="GitHub" class="api-logo" style="filter: invert(1);">
+                    <div>
+                        <h3>GitHub Code Search</h3>
+                        <small style="color: #aaa;">Advanced code pattern scanning</small>
+                    </div>
+                    <span class="api-badge">NEW</span>
+                </div>
+                <p style="color: #ccc; margin-bottom: 1.5rem;">
+                    Leverage GitHub's code search API to find subdomains exposed in public repositories,
+                    commit histories, and gists.
+                </p>
+                <div class="code-block">
+                    subfors -d example.com -gt YOUR_GH_TOKEN
+                </div>
+                <div>
+                    <small style="color: #aaa;">Key Features:</small>
+                    <ul style="color: #ccc; margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Scan 10M+ public repositories</li>
+                        <li>Historical commit analysis</li>
+                        <li>Automated secret detection</li>
+                        <li>Smart pattern matching</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+
         </div>
     </section>
+<section class="hero">
+                <div class="hero-content">
+                    <h1 class="animate__animated animate__fadeInUp">
+                        Subdomain Enumeration Redefined
+                    </h1>
+                    <div class="cli-preview animate__animated animate__fadeInUp" 
+                         style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 10px; 
+                                margin: 2rem auto; max-width: 800px; text-align: left;">
+                        <code style="color: var(--primary);">$ subfors -d example.com </code><br>
+                        <code style="color: var(--primary);">$ subfors -d example.com -oJ op.json -oX op.xml -o op.txt</code><br>
+                        <code style="color: var(--primary);">$ subfors -d example.com -vt abc123def456ijweioqu121o2 </code><br>
+                        <code style="color: var(--primary);">$ subfors -d example.com -dn xyz789uvw01229jvweiji223incq</code><br>
+                        <code style="color: var(--primary);">$ subfors -d example.com -gt ghp_abcd1234xyzjwejnkjnasnas</code><br>
+                        <code style="color: var(--primary);">$ subfors -dL scop.txt -t 60 -timeout 20 </code><br>
 
+                    </div>
+
+                </div>
+            </section>
+            <script>
+                // Add terminal typing effect to CLI preview
+                const cliElements = document.querySelectorAll('.cli-preview code');
+                cliElements.forEach(el => {
+                    const text = el.textContent;
+                    el.textContent = '';
+                    let index = 0;
+                    
+                    function typeText() {
+                        if(index < text.length) {
+                            el.textContent += text.charAt(index);
+                            index++;
+                            setTimeout(typeText, 20);
+                        }
+                    }
+                    
+                    setTimeout(typeText, 1000);
+                });
+        
+                // Add parallax effect to hero section
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    const hero = document.querySelector('.hero');
+                    hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+                });
+            </script>
     <!-- Screenshots Section -->
     <section class="screenshots" style="padding: 4rem 0; position: relative;">
         <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Tool Screenshots</h2>
