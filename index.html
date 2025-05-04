@@ -295,7 +295,25 @@
             border-radius: 5px;
             transition: all 0.3s ease;
         }
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
 
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax Effect */
+        .hero {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
         .project-link:hover {
             color: var(--primary);
             border-color: var(--primary);
@@ -531,52 +549,23 @@
 
         </div>
     </section>
-<section class="hero">
-                <div class="hero-content">
-                    <h1 class="animate__animated animate__fadeInUp">
-                        Subdomain Enumeration Redefined
-                    </h1>
-                    <div class="cli-preview animate__animated animate__fadeInUp" 
-                         style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 10px; 
-                                margin: 2rem auto; max-width: 800px; text-align: left;">
-                        <code style="color: var(--primary);">$ subfors -d example.com </code><br>
-                        <code style="color: var(--primary);">$ subfors -d example.com -oJ op.json -oX op.xml -o op.txt</code><br>
-                        <code style="color: var(--primary);">$ subfors -d example.com -vt abc123def456ijweioqu121o2 </code><br>
-                        <code style="color: var(--primary);">$ subfors -d example.com -dn xyz789uvw01229jvweiji223incq</code><br>
-                        <code style="color: var(--primary);">$ subfors -d example.com -gt ghp_abcd1234xyzjwejnkjnasnas</code><br>
-                        <code style="color: var(--primary);">$ subfors -dL scop.txt -t 60 -timeout 20 </code><br>
-
-                    </div>
-
-                </div>
-            </section>
-            <script>
-                // Add terminal typing effect to CLI preview
-                const cliElements = document.querySelectorAll('.cli-preview code');
-                cliElements.forEach(el => {
-                    const text = el.textContent;
-                    el.textContent = '';
-                    let index = 0;
-                    
-                    function typeText() {
-                        if(index < text.length) {
-                            el.textContent += text.charAt(index);
-                            index++;
-                            setTimeout(typeText, 20);
-                        }
-                    }
-                    
-                    setTimeout(typeText, 1000);
-                });
-        
-                // Add parallax effect to hero section
-                window.addEventListener('scroll', () => {
-                    const scrolled = window.pageYOffset;
-                    const hero = document.querySelector('.hero');
-                    hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
-                });
-            </script>
-    <!-- Screenshots Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animate-on-scroll" data-animation="fadeInUp">
+                Subdomain Enumeration Redefined
+            </h1>
+            <div class="cli-preview animate-on-scroll" data-animation="fadeInUp" 
+                 style="background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 10px; 
+                        margin: 2rem auto; max-width: 800px; text-align: left;">
+                <code style="color: var(--primary);">$ subfors -d example.com </code><br>
+                <code style="color: var(--primary);">$ subfors -d example.com -oJ op.json -oX op.xml -o op.txt</code><br>
+                <code style="color: var(--primary);">$ subfors -d example.com -vt abc123def456ijweioqu121o2 </code><br>
+                <code style="color: var(--primary);">$ subfors -d example.com -dn xyz789uvw01229jvweiji223incq</code><br>
+                <code style="color: var(--primary);">$ subfors -d example.com -gt ghp_abcd1234xyzjwejnkjnasnas</code><br>
+                <code style="color: var(--primary);">$ subfors -dL scop.txt -t 60 -timeout 20 </code><br>
+            </div>
+        </div>
+    </section>
     <section class="screenshots" style="padding: 4rem 0; position: relative;">
         <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Tool Screenshots</h2>
         
@@ -891,6 +880,69 @@
             buttons[0].style.display = gallery.scrollLeft === 0 ? 'none' : 'block';
             buttons[1].style.display = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth ? 'none' : 'block';
         });
+        // 1. Intersection Observer for Scroll Animations
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
+};
+
+// 2. Terminal Typing Effect (Only triggers when visible)
+const initTerminalTyping = () => {
+    const cliElements = document.querySelectorAll('.cli-preview code');
+    
+    const typingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const codes = entry.target.parentElement.querySelectorAll('code');
+                codes.forEach(el => {
+                    const text = el.textContent;
+                    el.textContent = '';
+                    let index = 0;
+                    
+                    function typeText() {
+                        if (index < text.length) {
+                            el.textContent += text.charAt(index);
+                            index++;
+                            setTimeout(typeText, 20);
+                        }
+                    }
+                    setTimeout(typeText, 200);
+                });
+                typingObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    cliElements.forEach(el => typingObserver.observe(el.parentElement));
+};
+
+    // 3. Parallax Effect (Optional)
+    const initParallax = () => {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+            }
+        });
+    };
+
+    // Initialize all effects when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        animateOnScroll();
+        initTerminalTyping();
+        initParallax();
+    });
 
         // Initial load
         displayComments();
